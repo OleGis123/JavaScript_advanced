@@ -11,15 +11,17 @@
     <header>
         <div class="logo">Интернет-магазин</div>
         <div class="cart">
+            <!-- 1-ый пункт ДЗ -->
             <form action="#" class="search-form" @submit = "filterGoods(searchLine)">
                 <input type="text" class="search-field" v-model="searchLine">
                 <button class="btn-search" type="submit">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
-            <button class="btn-cart" type="button"  @click = "showCart = !showCart">Корзина</button>
+            <!-- 2-ой пункт ДЗ -->
+            <button class="btn-cart" type="button"  @click = "showCart = !showCart">Корзина</button> <!--Взял только разметку корзины из 6-ого урока, а в остальном всё сам писал-->
             <div class="cart-block" v-show="showCart">
-                <p v-if="!cartCatalog.length">Корзина пуста</p>
+                <p v-if="!cartCatalog.length">Корзина пуста</p> <!-- 3-ий пункт ДЗ -->
                 <div class="cart-item" v-for="item of cartCatalog" :key="item.id_product">
                     <div class="product-bio">
 
@@ -31,7 +33,7 @@
                     </div>
                     <div class="right-block">
                         <p class="product-price">{{item.quantity*item.price}}₽</p>
-<!--                        <button class="del-btn" @click="remove(item)">&times;</button>-->
+                        <!--                        <button class="del-btn" @click="remove(item)">&times;</button>-->
                     </div>
                 </div>
             </div>
