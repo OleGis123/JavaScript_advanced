@@ -20,15 +20,18 @@ const app = new Vue({
           });
     },
     addProduct(product) {
-        const newProduct = this.cartCatalog.find((el) =>{
-            if (el.id_product === product.id_product){
-                return product
+        const newProduct = this.cartCatalog.find((el,index) => {
+            if(el.id_product === product.id_product){
+                this.cartCatalog.splice(index,1);
+                return el
             }
         });
         if(newProduct){
-            newProduct.quantity++
+            let obj = Object.assign(newProduct);
+            obj.quantity++;
+            this.cartCatalog.push(obj)
         }else{
-            product.quantity = 1;
+            Vue.set(product, 'quantity', 1);
             this.cartCatalog.push(product)
         }
     },
